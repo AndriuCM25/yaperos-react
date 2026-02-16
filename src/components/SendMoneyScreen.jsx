@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Search, User, Clock, Star, Phone, UserCircle } from 'lucide-react';
+import { ArrowLeft, Search, Clock, Star, Phone, UserCircle } from 'lucide-react';
 
 export default function SendMoneyScreen({ onNavigate, onSend, userData }) {
   const [amount, setAmount] = useState('');
@@ -426,4 +426,5 @@ export default function SendMoneyScreen({ onNavigate, onSend, userData }) {
   }
 
   return null;
+
 }
