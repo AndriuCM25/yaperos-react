@@ -24,15 +24,15 @@ export default function SuccessScreen({ transactionData, onReset }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#6C1D78] via-[#722380] to-[#6C1D78] flex flex-col relative overflow-hidden">
+    <div className="h-screen max-h-screen bg-gradient-to-br from-[#6C1D78] via-[#722380] to-[#6C1D78] flex flex-col relative overflow-hidden max-w-md mx-auto">
       {showConfetti && <Confetti />}
 
-      {/* Header con logo y botón cerrar */}
-      <div className="flex justify-between items-center px-6 py-8 relative z-10">
+      {/* Header con logo y botón cerrar - FIJO */}
+      <div className="flex justify-between items-center px-6 py-6 relative z-10 flex-shrink-0">
         <img 
           src="/yape.png" 
           alt="Yape" 
-          className="h-20 w-auto"
+          className="h-16 w-auto"
           onError={(e) => {
             e.target.style.display = 'none';
             e.target.nextSibling.style.display = 'block';
@@ -49,7 +49,7 @@ export default function SuccessScreen({ transactionData, onReset }) {
       </div>
 
       {/* Contenido scrolleable */}
-      <div className="flex-1 overflow-y-auto px-6 pb-6 relative z-10">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 pb-6 relative z-10" style={{ WebkitOverflowScrolling: 'touch' }}>
         {/* Card principal */}
         <div className="bg-white rounded-3xl p-6 shadow-2xl mb-4">
           {/* Título y compartir */}
@@ -135,7 +135,7 @@ export default function SuccessScreen({ transactionData, onReset }) {
         {/* Botón Nuevo Yapeo */}
         <button
           onClick={onReset}
-          className="w-full bg-[#00D9BC] hover:bg-[#00C4A7] text-white font-bold py-5 rounded-xl shadow-xl transition-all transform hover:scale-[1.02] mb-4 flex items-center justify-center gap-2"
+          className="w-full bg-[#00D9BC] hover:bg-[#00C4A7] text-white font-bold py-5 rounded-xl shadow-xl transition-all mb-4 flex items-center justify-center gap-2"
         >
           <Send size={20} />
           Nuevo Yapeo
@@ -148,7 +148,7 @@ export default function SuccessScreen({ transactionData, onReset }) {
         </button>
 
         {/* Sección de anuncios */}
-        <div className="bg-[#8B2A9B] rounded-3xl p-4 shadow-xl">
+        <div className="bg-[#8B2A9B] rounded-3xl p-4 shadow-xl mb-8">
           <div className="flex items-center gap-2 mb-3">
             <h3 className="text-white font-bold text-base">Más en Yape</h3>
             <span className="bg-yellow-400 text-[#6C1D78] text-xs font-bold px-2 py-1 rounded">
@@ -179,6 +179,9 @@ export default function SuccessScreen({ transactionData, onReset }) {
             </div>
           </div>
         </div>
+
+        {/* Espacio extra al final para asegurar scroll */}
+        <div className="h-20"></div>
       </div>
     </div>
   );
